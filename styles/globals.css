@@ -89,7 +89,7 @@ body {
   overflow-x: hidden;
 }
 
-body {
+/* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -97,7 +97,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+} */
 
 a {
   color: inherit;
@@ -119,6 +119,16 @@ a {
   .text-shadow-dark-sm {
     text-shadow: 0px 0px 2px black, 0px 0px 2px black, 0px 0px 2px black,
       0px 0px 2px black, 0px 0px 2px black;
+  }
+
+  .text-shadow-dark-md {
+    text-shadow: 0px 0px 4px black, 0px 0px 4px black, 0px 0px 4px black,
+      0px 0px 4px black, 0px 0px 4px black;
+  }
+
+  .text-shadow-dark-lg {
+    text-shadow: 0px 0px 6px black, 0px 0px 6px black, 0px 0px 6px black,
+      0px 0px 6px black, 0px 0px 6px black;
   }
 
   .text-shadow-light {
