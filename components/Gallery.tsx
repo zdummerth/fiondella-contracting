@@ -101,8 +101,9 @@ const Gallery = () => {
             {galeryFileNames.map((image: any) => {
               return (
                 <SupabaseImage
+                  key={image}
                   src={image}
-                  alt="test"
+                  alt="gallery image"
                   fill
                   priority={image === currentImage}
                   sizes="(max-width: 768px) 100vw,
@@ -130,6 +131,7 @@ const Gallery = () => {
               return (
                 <Thumbnail
                   image={image}
+                  key={image}
                   currentImage={currentImage}
                   setCurrentImage={setCurrentImage}
                 />
