@@ -68,19 +68,20 @@ const Gallery = () => {
     setCurrentImage(img);
   };
 
-  const handleImageNext = () => {
+  const getNextImage = () => {
     const index = galeryFileNames.findIndex((img) => img === currentImage);
     const isLast = index === galeryFileNames.length - 1;
-    setCurrentImage(galeryFileNames[isLast ? 0 : index + 1]);
+    return galeryFileNames[isLast ? 0 : index + 1];
   };
 
-  const handleImagePrev = () => {
+  const getPrevImage = () => {
     const index = galeryFileNames.findIndex((img) => img === currentImage);
     const isFirst = index === 0;
-    setCurrentImage(
-      galeryFileNames[isFirst ? galeryFileNames.length - 1 : index - 1]
-    );
+    return galeryFileNames[isFirst ? galeryFileNames.length - 1 : index - 1];
   };
+
+  const handleImageNext = () => setCurrentImage(getNextImage());
+  const handleImagePrev = () => setCurrentImage(getPrevImage());
 
   return (
     <div className="grid grid-cols-2 gap-2 md:grid-cols-3">
@@ -97,14 +98,22 @@ const Gallery = () => {
       {currentImage && (
         <div className="fixed z-20 top-0 left-0 w-screen h-screen bg-black flex flex-col">
           <div className="relative flex-1 flex flex-col w-screen">
-            <SupabaseImage
-              src={currentImage}
-              alt="test"
-              fill
-              sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 70vw"
-              className="object-contain"
-            />
+            {galeryFileNames.map((image: any) => {
+              return (
+                <SupabaseImage
+                  key={image}
+                  src={image}
+                  alt="gallery image"
+                  fill
+                  priority={image === currentImage}
+                  sizes="(max-width: 768px) 100vw,
+                  (max-width: 1200px) 60vw"
+                  className={`object-contain transition-all duration-500 ${
+                    image === currentImage ? "opacity-1" : "opacity-0"
+                  }`}
+                />
+              );
+            })}
             <div className="absolute self-center bottom-5 z-10 text-white bg-black/80 rounded-full p-2 flex items-center">
               <button className="" onClick={handleImagePrev}>
                 <ChevronLeft className="w-8 h-8" />

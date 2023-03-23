@@ -19,10 +19,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`min-h-screen ${inter.className}`}>
+      <main className={`min-h-screen max-w-6xl m-auto ${inter.className}`}>
         <div className="relative flex justify-center items-center h-96 max-h-screen overflow-hidden">
-          <div className="absolute z-10 text-center min-w-3/4 max-w-2xl rounded p-4">
-            <h2 className="text-2xl mb-4 text-shadow-light-md">
+          <div className="absolute z-10 text-center min-w-3/4 rounded p-4">
+            <h2 className="text-3xl mb-4 text-shadow-dark-lg">
               {pageData.sections.hero.headline}
             </h2>
             <Link
@@ -56,12 +56,12 @@ export default function Home() {
             <p>{pageData.sections.text.p}</p>
           </div>
         </div>
-        <div className="flex flex-col items-center px-4 mt-6 gap-8">
+        <div className="flex flex-col items-center">
           {pageData.sections.services.list.map((s: any, ind: number) => {
             return (
               <div
                 key={s.name}
-                className={`flex-1 shadow-md shadow-emerald-500 max-w-[500px] md:max-w-none ${
+                className={`flex-1 max-w-[500px] md:max-w-none ${
                   ind % 2 === 0 ? "md:flex" : "md:flex md:flex-row-reverse"
                 }`}
               >
@@ -72,7 +72,7 @@ export default function Home() {
                   width={500}
                   placeholder="blur"
                 />
-                <div className="bg-slate-300 p-2 rounded md:pt-16 md:px-8">
+                <div className="bg-slate-300 p-2 md:pt-16 md:px-8">
                   <h4 className="text-3xl text-center font-semibold text-emerald-800 mb-2">
                     {s.name}
                   </h4>
@@ -83,7 +83,7 @@ export default function Home() {
           })}
         </div>
 
-        <div className="bg-slate-300 p-2 rounded m-4 shadow-md shadow-emerald-500">
+        <div className="bg-slate-300 p-2">
           <h3 className="text-3xl text-center font-semibold text-emerald-800 mb-2">
             {pageData.sections.testimonials.title}
           </h3>
@@ -102,7 +102,7 @@ export default function Home() {
         </div>
         <div
           id="contact"
-          className="bg-slate-300 p-2 rounded m-4 shadow-md shadow-emerald-500 flex flex-col items-center"
+          className="bg-slate-300 p-2 flex flex-col items-center"
         >
           <h3 className="text-3xl text-center font-semibold text-emerald-800 mb-2">
             Contact Us
@@ -113,7 +113,7 @@ export default function Home() {
         </div>
         <div
           id="gallery"
-          className="bg-slate-300 p-2 rounded m-4 shadow-md shadow-emerald-500"
+          className="bg-slate-300 p-2 rounded my-4 shadow-md shadow-emerald-500"
         >
           <h3 className="text-3xl text-center font-semibold text-emerald-800 mb-2">
             Project Gallery
