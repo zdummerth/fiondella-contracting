@@ -49,7 +49,7 @@ const Thumbnail = ({ image, setCurrentImage, currentImage }: any) => {
     >
       <SupabaseImage
         src={image}
-        alt="test"
+        alt="gallery thumbnail"
         fill
         sizes="10vw"
         className="object-cover"
@@ -122,6 +122,7 @@ const Gallery = () => {
               return (
                 <Thumbnail
                   image={image}
+                  key={image}
                   currentImage={currentImage}
                   setCurrentImage={setCurrentImage}
                 />
