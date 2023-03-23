@@ -19,16 +19,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`min-h-screen max-w-6xl m-auto ${inter.className}`}>
+      <main className={`min-h-screen max-w-[1200px] m-auto ${inter.className}`}>
         <div className="relative flex justify-center items-center h-96 max-h-screen overflow-hidden">
           <div className="absolute z-10 text-center min-w-3/4 rounded p-4">
-            <h2 className="text-3xl mb-4 text-shadow-dark-lg">
+            <h2 className="text-3xl mb-4 text-white text-shadow-dark-lg">
               {pageData.sections.hero.headline}
             </h2>
-            <Link
-              href="#contact"
-              className="bg-emerald-700 p-2 rounded-full text-white"
-            >
+            <Link href="#contact" className="bg-white p-3 rounded-full">
               {pageData.sections.hero.cta}
             </Link>
           </div>
@@ -37,12 +34,11 @@ export default function Home() {
             alt="Hero image of backyard living space"
             fill
             className="object-cover"
-            // placeholder="blur"
           />
         </div>
 
         <div className="bg-emerald-300 px-4 py-16">
-          <div className="max-w-2xl mx-auto flex flex-col items-center">
+          <div className="max-w-[600px] mx-auto flex flex-col items-center">
             <h1 className="text-4xl text-center font-semibold">
               {pageData.sections.text.heading}
             </h1>
@@ -61,29 +57,30 @@ export default function Home() {
             return (
               <div
                 key={s.name}
-                className={`flex-1 max-w-[500px] md:max-w-none ${
-                  ind % 2 === 0 ? "md:flex" : "md:flex md:flex-row-reverse"
+                className={`flex-1 lg:flex lg:items-center ${
+                  ind % 2 === 0 ? "" : "lg:flex-row-reverse"
                 }`}
               >
                 <Image
                   src={s.image.src}
                   alt="Hero image of backyard living space"
-                  height={500}
-                  width={500}
+                  height={600}
+                  width={600}
                   placeholder="blur"
+                  className="mx-auto"
                 />
-                <div className="bg-slate-300 p-2 md:pt-16 md:px-8">
+                <div className="px-4 py-8 max-w-[600px]">
                   <h4 className="text-3xl text-center font-semibold text-emerald-800 mb-2">
                     {s.name}
                   </h4>
-                  <p>{s.description}</p>
+                  <p className="">{s.description}</p>
                 </div>
               </div>
             );
           })}
         </div>
 
-        <div className="bg-slate-300 p-2">
+        {/* <div className="bg-slate-300 px-4 py-8">
           <h3 className="text-3xl text-center font-semibold text-emerald-800 mb-2">
             {pageData.sections.testimonials.title}
           </h3>
@@ -99,10 +96,10 @@ export default function Home() {
               );
             })}
           </div>
-        </div>
+        </div> */}
         <div
           id="contact"
-          className="bg-slate-300 p-2 flex flex-col items-center"
+          className="bg-slate-300 px-4 py-8 flex flex-col items-center"
         >
           <h3 className="text-3xl text-center font-semibold text-emerald-800 mb-2">
             Contact Us
@@ -113,7 +110,7 @@ export default function Home() {
         </div>
         <div
           id="gallery"
-          className="bg-slate-300 p-2 rounded my-4 shadow-md shadow-emerald-500"
+          className="p-2 rounded my-4 shadow-md shadow-emerald-500"
         >
           <h3 className="text-3xl text-center font-semibold text-emerald-800 mb-2">
             Project Gallery
