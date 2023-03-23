@@ -25,7 +25,10 @@ export default function Home() {
             <h2 className="text-3xl mb-4 text-white text-shadow-dark-lg">
               {pageData.sections.hero.headline}
             </h2>
-            <Link href="#contact" className="bg-white p-3 rounded-full">
+            <Link
+              href="#contact"
+              className="bg-white text-black p-3 rounded-full"
+            >
               {pageData.sections.hero.cta}
             </Link>
           </div>
