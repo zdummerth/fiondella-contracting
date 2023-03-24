@@ -95,51 +95,55 @@ const Gallery = () => {
           <SupabaseImage src={image} alt="test" width={400} height={400} />
         </button>
       ))}
-      {currentImage && (
-        <div className="fixed z-20 top-0 left-0 w-screen h-screen bg-black flex flex-col">
-          <div className="relative flex-1 flex flex-col w-screen">
-            {galeryFileNames.map((image: any) => {
-              return (
-                <SupabaseImage
-                  key={image}
-                  src={image}
-                  alt="gallery image"
-                  fill
-                  priority={image === currentImage}
-                  sizes="(max-width: 768px) 100vw,
+      <div
+        className={`${
+          currentImage
+            ? "fixed z-20 top-0 left-0 w-screen h-screen bg-black flex flex-col"
+            : "hidden"
+        }`}
+      >
+        <div className="relative flex-1 flex flex-col w-screen">
+          {galeryFileNames.map((image: any) => {
+            return (
+              <SupabaseImage
+                key={image}
+                src={image}
+                alt="gallery image"
+                fill
+                priority={image === currentImage}
+                sizes="(max-width: 768px) 100vw,
                   (max-width: 1200px) 60vw"
-                  className={`object-contain transition-all duration-500 ${
-                    image === currentImage ? "opacity-1" : "opacity-0"
-                  }`}
-                />
-              );
-            })}
-            <div className="absolute self-center bottom-5 z-10 text-white bg-black/80 rounded-full p-2 flex items-center">
-              <button className="" onClick={handleImagePrev}>
-                <ChevronLeft className="w-8 h-8" />
-              </button>
-              <button className="mx-4" onClick={() => setCurrentImage(null)}>
-                <X className="w-8 h-8" />
-              </button>
-              <button className="" onClick={handleImageNext}>
-                <ChevronRight className="w-8 h-8" />
-              </button>
-            </div>
-          </div>
-          <div className="flex overflow-x-auto md:justify-center gap-1 my-2 mx-2">
-            {galeryFileNames.map((image: any) => {
-              return (
-                <Thumbnail
-                  image={image}
-                  key={image}
-                  currentImage={currentImage}
-                  setCurrentImage={setCurrentImage}
-                />
-              );
-            })}
+                className={`object-contain transition-all duration-500 ${
+                  image === currentImage ? "opacity-1" : "opacity-0"
+                }`}
+              />
+            );
+          })}
+          <div className="absolute self-center bottom-5 z-10 text-white bg-black/80 rounded-full p-2 flex items-center">
+            <button className="" onClick={handleImagePrev}>
+              <ChevronLeft className="w-8 h-8" />
+            </button>
+            <button className="mx-4" onClick={() => setCurrentImage(null)}>
+              <X className="w-8 h-8" />
+            </button>
+            <button className="" onClick={handleImageNext}>
+              <ChevronRight className="w-8 h-8" />
+            </button>
           </div>
         </div>
-      )}
+        <div className="flex overflow-x-auto md:justify-center gap-1 my-2 mx-2">
+          {galeryFileNames.map((image: any) => {
+            return (
+              <Thumbnail
+                image={image}
+                key={image}
+                currentImage={currentImage}
+                setCurrentImage={setCurrentImage}
+              />
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };

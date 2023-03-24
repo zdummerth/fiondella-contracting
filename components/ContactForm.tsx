@@ -22,7 +22,7 @@ export default function App() {
       </label>
       {errors.name && <span>Name is required</span>}
       <input
-        className="border-2 w-full"
+        className="p-1 rounded w-full"
         {...register("name", { required: true })}
       />
 
@@ -32,7 +32,7 @@ export default function App() {
       </label>
       {errors.email && <span>Email is required</span>}
       <input
-        className="border-2 w-full"
+        className="p-1 rounded w-full"
         {...register("email", { required: true })}
       />
 
@@ -40,7 +40,7 @@ export default function App() {
         Message
       </label>
       <textarea
-        className="p-1 rounded border-2 w-full"
+        className="p-1 rounded w-full"
         // onKeyDown={(e: any) => {
         //   e.target.style.height = "inherit";
         //   e.target.style.height = `${e.target.scrollHeight}px`;
