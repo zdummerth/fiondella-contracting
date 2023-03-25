@@ -51,7 +51,8 @@ const Thumbnail = ({ image, setCurrentImage, currentImage }: any) => {
         src={image}
         alt="gallery thumbnail"
         fill
-        sizes="10vw"
+        sizes="(max-width: 768px) 10vw,
+          (max-width: 1200px) 4vw"
         className="object-cover"
       />
       {!isSelected && (
@@ -84,7 +85,7 @@ const Gallery = () => {
   const handleImagePrev = () => setCurrentImage(getPrevImage());
 
   return (
-    <div className="grid grid-cols-2 gap-2 md:grid-cols-3">
+    <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
       {galeryFileNames.map((image: any) => (
         <button
           onClick={() => handleImageClick(image)}
@@ -92,7 +93,12 @@ const Gallery = () => {
           id={image}
           className="bg-black"
         >
-          <SupabaseImage src={image} alt="test" width={400} height={400} />
+          <SupabaseImage
+            src={image}
+            alt="gallery images"
+            width={400}
+            height={400}
+          />
         </button>
       ))}
       <div

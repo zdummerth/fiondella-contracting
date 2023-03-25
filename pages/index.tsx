@@ -19,7 +19,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`min-h-screen max-w-[1200px] m-auto ${inter.className}`}>
+      <main className={`min-h-screen max-w-[1440px] m-auto ${inter.className}`}>
         <div className="relative flex justify-center items-center h-96 max-h-screen overflow-hidden">
           <div className="absolute z-10 text-center min-w-3/4 rounded p-4">
             <h2 className="text-3xl mb-4 text-white text-shadow-dark-lg">
@@ -27,20 +27,18 @@ export default function Home() {
             </h2>
             <Link
               href="#contact"
-              className="bg-white text-black p-3 rounded-full"
+              className="bg-white text-black p-3 rounded-full shadow-black shadow-xl hover:shadow-white hover:text-white hover:bg-stone-900 transition-all duration-300"
             >
               {pageData.sections.hero.cta}
             </Link>
           </div>
-          <SupabaseImage
-            src={pageData.sections.hero.image.filename}
+          <Image
+            src={pageData.sections.hero.image.src}
             alt="Hero image of backyard living space"
-            fill
-            className="object-cover"
           />
         </div>
 
-        <div className="bg-emerald-300 px-4 py-16">
+        <div className="bg-emerald-300 dark:bg-emerald-700 px-4 py-16">
           <div className="max-w-[600px] mx-auto flex flex-col items-center">
             <h1 className="text-4xl text-center font-semibold">
               {pageData.sections.text.heading}
@@ -55,7 +53,7 @@ export default function Home() {
             <p>{pageData.sections.text.p}</p>
           </div>
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center my-8 max-w-[1200px] mx-auto">
           {pageData.sections.services.list.map((s: any, ind: number) => {
             return (
               <div
@@ -102,9 +100,9 @@ export default function Home() {
         </div> */}
         <div
           id="contact"
-          className="bg-slate-300 px-4 py-8 flex flex-col items-center"
+          className="bg-emerald-300 dark:bg-emerald-700 px-4 py-8 flex flex-col items-center"
         >
-          <h3 className="text-3xl text-center font-semibold text-emerald-800 mb-2">
+          <h3 className="text-3xl text-center font-semibold mb-2">
             Contact Us
           </h3>
           <div className="w-full max-w-lg">
