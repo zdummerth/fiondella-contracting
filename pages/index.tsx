@@ -35,6 +35,7 @@ export default function Home() {
           <Image
             src={pageData.sections.hero.image.src}
             alt="Hero image of backyard living space"
+            placeholder="blur"
           />
         </div>
 
