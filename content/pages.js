@@ -1,4 +1,4 @@
-import heroImg from "public/bg.jpg";
+import heroImg from "public/bg-large.webp";
 import fenceSectionImg from "public/fenceservice.jpg";
 import deckSectionImg from "public/deckservice.jpg";
 
@@ -17,7 +17,7 @@ export default {
         cta: "Schedule Your Consultation Today",
         image: {
           src: heroImg,
-          filename: "bg.jpg",
+          filename: "bg-large.webp",
         },
       },
       text: {

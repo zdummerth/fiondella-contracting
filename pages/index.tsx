@@ -19,10 +19,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`min-h-screen max-w-[1440px] m-auto ${inter.className}`}>
-        <div className="relative flex justify-center items-center h-96 max-h-screen overflow-hidden">
+      <main className={`min-h-screen max-w-[2500px] m-auto ${inter.className}`}>
+        <div className="relative flex justify-center items-center max-h-screen overflow-hidden">
           <div className="absolute z-10 text-center min-w-3/4 rounded p-4">
-            <h2 className="text-3xl mb-4 text-white text-shadow-dark-lg">
+            <h2 className="text-3xl mb-4 text-white text-shadow-dark-lg lg:text-6xl lg:mb-12">
               {pageData.sections.hero.headline}
             </h2>
             <Link
@@ -39,16 +39,16 @@ export default function Home() {
           />
         </div>
 
-        <div className="bg-emerald-300 dark:bg-emerald-700 px-4 py-16">
+        <div className="bg-emerald-300 px-4 py-16">
           <div className="max-w-[600px] mx-auto flex flex-col items-center">
-            <h1 className="text-4xl text-center font-semibold">
+            <h1 className="text-4xl text-center font-semibold lg:text-6xl">
               {pageData.sections.text.heading}
             </h1>
             <SupabaseImage
               src={pageData.sections.text.image}
               alt="picket fence logo"
-              width={150}
-              height={150}
+              width={250}
+              height={250}
               className="my-6"
             />
             <p>{pageData.sections.text.p}</p>
@@ -59,7 +59,7 @@ export default function Home() {
             return (
               <div
                 key={s.name}
-                className={`flex-1 lg:flex lg:items-center ${
+                className={`flex-1 my-10 lg:flex lg:items-center ${
                   ind % 2 === 0 ? "" : "lg:flex-row-reverse"
                 }`}
               >
@@ -72,7 +72,7 @@ export default function Home() {
                   className="mx-auto"
                 />
                 <div className="px-4 py-8 max-w-[600px]">
-                  <h4 className="text-3xl text-center font-semibold text-emerald-800 mb-2">
+                  <h4 className="text-4xl text-center font-semibold mb-6 lg:text-5xl">
                     {s.name}
                   </h4>
                   <p className="">{s.description}</p>
@@ -101,7 +101,7 @@ export default function Home() {
         </div> */}
         <div
           id="contact"
-          className="bg-emerald-300 dark:bg-emerald-700 px-4 py-8 flex flex-col items-center"
+          className="bg-emerald-300 px-4 py-8 flex flex-col items-center"
         >
           <h3 className="text-3xl text-center font-semibold mb-2">
             Contact Us
