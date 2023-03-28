@@ -1,4 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
+import { toast } from "react-toastify";
 
 type Inputs = {
   name: string;
@@ -9,10 +10,21 @@ type Inputs = {
 // create regex for email validation
 const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
+const ToastMsg = ({ name }: { name?: string }) => {
+  return (
+    <div className="py-8 text-xl">
+      {name
+        ? `Thanks for your message ${name}! We will get back to you soon.`
+        : `Sorry there was an error submitting your message. Please try again.`}
+    </div>
+  );
+};
+
 export default function App() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
@@ -26,8 +38,13 @@ export default function App() {
         body: JSON.stringify(data),
       });
       const json = await res.json();
-      console.log(json);
+      if (json.error) throw new Error();
+      toast.success(<ToastMsg name={data.name} />);
+      reset();
     } catch (e) {
+      toast.error(<ToastMsg />, {
+        autoClose: false,
+      });
       console.error(e);
     }
   };
