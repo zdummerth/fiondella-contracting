@@ -8,6 +8,7 @@ import { Inter } from "next/font/google";
 const pageData = content.index;
 import ContactForm from "@/components/ContactForm";
 import Gallery from "@/components/Gallery";
+import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -81,24 +82,6 @@ export default function Home() {
             );
           })}
         </div>
-
-        {/* <div className="bg-slate-300 px-4 py-8">
-          <h3 className="text-3xl text-center font-semibold text-emerald-800 mb-2">
-            {pageData.sections.testimonials.title}
-          </h3>
-          <div className="flex flex-col px-4 mt-6 gap-8">
-            {pageData.sections.testimonials.list.map((s: any) => {
-              return (
-                <div key={s.name} className="">
-                  <p className="mb-2">{s.quote}</p>
-                  <p className="font-semibold text-emerald-800 mb-2">
-                    -{s.name}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div> */}
         <div
           id="contact"
           className="bg-emerald-300 px-4 py-8 flex flex-col items-center"
@@ -110,15 +93,13 @@ export default function Home() {
             <ContactForm />
           </div>
         </div>
-        <div
-          id="gallery"
-          className="p-2 rounded my-4 shadow-md shadow-emerald-500"
-        >
+        <div id="gallery" className="p-2 rounded my-4">
           <h3 className="text-3xl text-center font-semibold text-emerald-800 mb-2">
             Project Gallery
           </h3>
           <Gallery />
         </div>
+        <Footer />
       </main>
     </>
   );
