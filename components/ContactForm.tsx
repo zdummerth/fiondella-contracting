@@ -5,10 +5,12 @@ type Inputs = {
   name: string;
   email: string;
   message: string;
+  phone: string;
 };
 
 // create regex for email validation
 const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+const errorClassname = "text-red-500 font-semibold";
 
 const ToastMsg = ({ name }: { name?: string }) => {
   return (
@@ -55,17 +57,30 @@ export default function App() {
       <label className="block font-semibold mb-1 mt-3" htmlFor="name">
         Name*
       </label>
-      {errors.name && <span>Name is required</span>}
+      {errors.name && <span className={errorClassname}>Name is required</span>}
       <input
         className="p-1 rounded w-full"
         {...register("name", { required: true })}
       />
 
-      {/* include validation with required or other standard HTML validation rules */}
+      <label className="block font-semibold mb-1 mt-3" htmlFor="phone">
+        Phone*
+      </label>
+      {errors.phone && (
+        <span className={errorClassname}>Phone number is required</span>
+      )}
+      <input
+        className="p-1 rounded w-full"
+        type="tel"
+        {...register("phone", { required: true })}
+      />
+
       <label className="block font-semibold mb-1 mt-3" htmlFor="email">
         Email*
       </label>
-      {errors.email && <span>Email is required</span>}
+      {errors.email && (
+        <span className={errorClassname}>Email is required</span>
+      )}
       <input
         className="p-1 rounded w-full"
         type="email"
@@ -75,7 +90,9 @@ export default function App() {
       <label className="block font-semibold mb-1 mt-3" htmlFor="message">
         Message*
       </label>
-      {errors.message && <span>Message is required</span>}
+      {errors.message && (
+        <span className={errorClassname}>Message is required</span>
+      )}
       <textarea
         className="p-1 rounded w-full"
         rows={6}

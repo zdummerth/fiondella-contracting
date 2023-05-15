@@ -4,6 +4,7 @@ interface FormSubmissionInput {
   name: string;
   email: string;
   message: string;
+  phone: string;
 }
 
 const queryFauna = async ({ query, variables, secret }: any) => {
@@ -36,7 +37,6 @@ const queryFauna = async ({ query, variables, secret }: any) => {
 };
 
 export const createFormSubmission = async (data: FormSubmissionInput) => {
-  const { name, email, message } = data;
   const query = `
     mutation CreateFormSubmission($data: FormSubmissionInput!) {
       createFormSubmission(data: $data) {
@@ -44,15 +44,13 @@ export const createFormSubmission = async (data: FormSubmissionInput) => {
         name
         email
         message
+        phone
       }
     }
   `;
+
   const variables = {
-    data: {
-      name,
-      email,
-      message,
-    },
+    data,
   };
   const secret = process.env.FAUNA_FORM_SUBMISSIONS_KEY;
   const res = await queryFauna({ query, variables, secret });
