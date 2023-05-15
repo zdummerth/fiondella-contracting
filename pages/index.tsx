@@ -4,12 +4,15 @@ import SupabaseImage from "@/components/SupabaseImage";
 
 import Link from "next/link";
 import content from "@/content/pages";
-import { Inter } from "next/font/google";
+import { Nunito } from "next/font/google";
 const pageData = content.index;
 import ContactForm from "@/components/ContactForm";
 import Gallery from "@/components/Gallery";
 import Footer from "@/components/Footer";
-const inter = Inter({ subsets: ["latin"] });
+const font = Nunito({ weight: ["400", "600"], subsets: ["latin"] });
+
+const textclassname = "text-lg lg:text-xl";
+const herotextspan = "hidden lg:block lg:text-left lg:mb-4";
 
 export default function Home() {
   return (
@@ -20,11 +23,18 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`min-h-screen max-w-[2500px] m-auto ${inter.className}`}>
+      <main className={`min-h-screen max-w-[2500px] m-auto ${font.className}`}>
         <div className="relative flex justify-center items-center max-h-screen overflow-hidden">
           <div className="absolute z-10 text-center min-w-3/4 rounded p-4">
-            <h2 className="text-3xl mb-4 text-white text-shadow-dark-lg lg:text-6xl lg:mb-12">
-              {pageData.sections.hero.headline}
+            <h2 className="text-4xl md:text-5xl mb-6 text-white text-shadow-dark-lg lg:text-6xl lg:mb-12">
+              {/* {pageData.sections.hero.headline} */}
+              <span className="lg:hidden">
+                {pageData.sections.hero.headline}
+              </span>
+              <span className={herotextspan}>Transform</span>
+              <span className={herotextspan}>Your</span>
+              <span className={herotextspan}>Outdoor</span>
+              <span className={herotextspan}>Space</span>
             </h2>
             <Link
               href="#contact"
@@ -52,7 +62,7 @@ export default function Home() {
               height={250}
               className="my-6"
             />
-            <p>{pageData.sections.text.p}</p>
+            <p className={textclassname}>{pageData.sections.text.p}</p>
           </div>
         </div>
         <div className="flex flex-col items-center my-8 max-w-[1200px] mx-auto">
@@ -76,7 +86,7 @@ export default function Home() {
                   <h4 className="text-4xl text-center font-semibold mb-6 lg:text-5xl">
                     {s.name}
                   </h4>
-                  <p className="">{s.description}</p>
+                  <p className={textclassname}>{s.description}</p>
                 </div>
               </div>
             );
